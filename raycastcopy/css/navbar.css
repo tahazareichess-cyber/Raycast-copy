@@ -1,0 +1,206 @@
+body{
+    color:white;
+}
+nav{
+    position: fixed;
+    top: 25px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-container {
+    display: flex;
+    width: 90%;
+    align-items: center;
+    flex-direction:column;
+    padding: 15px 15px;
+    border: solid .5px rgba(247, 246, 246, 0.178);
+    box-shadow: 0 1px 2px 1px rgba(247, 246, 246, 0.178);
+    border-radius: 14px;
+    background: rgba(27, 27, 27, 0.8);
+    backdrop-filter: blur(8px);
+}
+.nav-logo img{
+    width:40px;
+    height:auto;
+}
+.nav-logo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    transition:.5s;
+}
+.nav-logo a{
+    text-decoration: none;
+    color:white;
+}
+.nav-logo:hover{
+    transform: scale(110%);
+    cursor: pointer;
+}
+.nav-items{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:34px;
+    font-size:14px;
+    margin-left: 10px;
+}
+.nav-items a {
+    color:rgb(150, 140, 140);
+    text-decoration:none;
+}
+.nav-items a:hover{
+    color:white;
+}
+.nav-login{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:25px;
+}
+.nav-login a {
+    color:rgb(150, 140, 140);
+    text-decoration:none;
+}
+.nav-login a:hover{
+    color:white;
+}
+#appleDownload{
+    background-color:rgb(241, 241, 241);
+    color:rgb(92, 89, 89);
+    padding:8px 5px;
+    border-radius:8px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+}
+#appleDownload:hover{
+    background-color:white;
+}
+#appleDownload span{
+   display:flex;
+    align-items:center;
+    justify-content:center; 
+}
+.hamburger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 22px;
+    height: 2px;
+    background: #f8f8f8;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+.hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+.nav-dex{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-mob {
+    width: 100%;
+    
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+
+    transition:
+        max-height 0.4s ease,
+        opacity 0.3s ease;
+}
+
+.nav-mob.active {
+    max-height: 600px;
+    opacity: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.mobile-menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.mobile-menu a {
+    text-decoration:none;
+    color:rgb(150, 140, 140);
+}
+.nav-log-mob {
+    padding-top: 20px;
+}
+
+.nav-log-mob a {
+    color: rgb(150, 140, 140);
+    text-decoration: none;
+}
+@media(max-width:1024px){
+    .nav-container{
+        padding:5px 15px;
+    }
+   #appleDownload{
+    display:none;
+   } 
+   .nav-login a{
+    background-color:rgb(241, 241, 241);
+    color:rgb(92, 89, 89);
+    padding:8px 5px;
+    border-radius:8px;
+    font-weight:600;
+   }
+   .nav-login a:hover{
+    background-color:white;
+}
+}
+@media(max-width:900px){
+    .nav-items{
+        display:none;
+    }
+    .nav-login{
+        display:none;
+    }
+    .hamburger{
+        display:flex;
+    }
+}

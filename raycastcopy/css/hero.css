@@ -1,0 +1,213 @@
+.hero {
+    background-image: url(../img/hero\ background.png);
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:cover;
+    position: relative;
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hero-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 140px;
+}
+.hero-content h1{
+    margin: 0;
+    text-align:center;
+    font-size:4rem;
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -1px;
+}
+.hero-content p{
+    margin: 0;
+    font-size:1.3rem;
+    max-width: 600px;
+    text-align:center;
+}
+.hero-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    
+    margin-top: 170px;
+    gap:10px;
+}
+.hero-btn a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:row;
+    gap: 5px;
+    padding:8px;
+    text-decoration: none;
+    background-color:rgb(236, 235, 235);
+    color:rgb(92, 89, 89);
+    font-weight: 600;
+    border-radius:7px;
+    border:solid 2px black;
+    box-shadow:1px 1px 1px 1px rgba(255, 255, 255, 0.281);
+}
+.hero-btn a:hover {
+    background-color: white;
+}
+.hero-btn a span{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.hero-btns{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+.hero-p-btn{
+    display:flex;
+    align-items:center; 
+    justify-content:center;
+    gap:10px;
+    color:gray;
+}
+.hero-p-btn p:first-child{
+    border-right:solid 1px white;
+    padding-right:10px;
+}
+.hero-glaze {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+.hero-glaze-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px;
+    border-radius: 999px;
+
+    background: #090909;
+
+    /* permanent red border */
+    border: 1px solid rgba(255, 40, 40, 0.7);
+
+    box-shadow:
+        0 0 12px rgba(255, 0, 0, 0.2),
+        0 0 25px rgba(255, 0, 0, 0.08);
+
+    overflow: hidden;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+.hero-glaze-wrapper::before {
+    content: "";
+    position: absolute;
+
+    width: 200%;
+    height: 200%;
+
+    left: -50%;
+    top: -50%;
+
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        transparent 345deg,
+        white 355deg,
+        transparent 360deg
+    );
+
+    animation: glaze-spin 2.5s linear infinite;
+
+    z-index: 0;
+}
+.hero-glaze-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+
+    background: #090909;
+    border-radius: inherit;
+
+    z-index: 1;
+}
+.hero-glaze-wrapper a {
+    position: relative;
+    z-index: 2;
+
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: gray;
+    padding-left: 10px;
+    gap: 5px;
+}
+.hero-glaze-wrapper:hover{
+    border-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.04);
+}
+.hero-glaze-wrapper a:first-child{
+    color:white;
+    border-right:solid 1px rgb(133, 131, 131);
+    padding-right:10px;
+}
+.hero-glaze-wrapper a span{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+@keyframes glaze-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+.hero-glaze-wrapper:hover {
+    border-color: rgba(255, 70, 70, 1);
+
+    box-shadow:
+        0 0 15px rgba(255, 0, 0, 0.4),
+        0 0 35px rgba(255, 0, 0, 0.3),
+        0 0 70px rgba(255, 0, 0, 0.15);
+}
+@media(max-width:425px){
+ .hero-btn{
+    display:none;
+ }
+ .hero-content h1{
+    font-size:3rem;
+ }
+ .hero-content p{
+    font-size:1rem;
+    max-width:80%;
+ }
+ .hero-glaze{
+    margin-top: 150px;
+ }
+}
+@media(max-width:375px){
+    .hero-content h1{
+    font-size:2.5rem;
+    max-width:90%;
+ }
+ .hero-content p{
+    font-size:1rem;
+    max-width:90%;
+ }
+}
