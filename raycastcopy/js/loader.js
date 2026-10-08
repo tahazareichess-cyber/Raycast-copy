@@ -4,6 +4,7 @@ const components = [
     ["products", "raycastcopy/html/products.html"],
     ["saveTime", "raycastcopy/html/saveTime.html"],
     ["extension", "raycastcopy/html/extension.html"],
+    ["aiAgent", "raycastcopy/html/aiAgent.html"],
 ];
 
 async function loadComponent(id, file) {
