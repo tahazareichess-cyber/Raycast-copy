@@ -1,9 +1,9 @@
 const components = [
-    ["navbar", "html/navbar.html"],
-    ["hero", "html/hero.html"],
-    ["products", "html/products.html"],
-    ["saveTime","html/saveTime.html"],
-    ["extension", "html/extension.html"],
+    ["navbar", "raycastcopy/html/navbar.html"],
+    ["hero", "raycastcopy/html/hero.html"],
+    ["products", "raycastcopy/html/products.html"],
+    ["saveTime", "raycastcopy/html/saveTime.html"],
+    ["extension", "raycastcopy/html/extension.html"],
 ];
 
 async function loadComponent(id, file) {
