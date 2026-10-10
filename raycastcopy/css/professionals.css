@@ -1,0 +1,398 @@
+html,
+body {
+    overflow-x: clip;
+}
+ 
+/* =========================
+   HEADER
+========================= */
+ 
+.professionals-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+ 
+.professionals-top {
+    margin: 30px 0 40px;
+}
+ 
+.professionals-top p {
+    margin: 0;
+}
+ 
+.professionals-text {
+    color: #fff;
+    font-weight: 600;
+}
+ 
+.professionals-top p:last-child {
+    margin-top: 8px;
+    color: #888;
+}
+ 
+/* =========================
+   CARDS ROW
+   Three cards fit inside the container, the rest overflow to the right.
+   The card width is calculated from --cards-gap, so only change the gap here.
+========================= */
+ 
+.professionals-cards {
+    --cards-gap: 24px;
+ 
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    gap: var(--cards-gap);
+ 
+    width: min(1100px, 90vw);
+    margin: 0 auto 40px;
+    padding-bottom: 40px;
+ 
+    border-bottom: 1px solid #555;
+}
+ 
+/* =========================
+   SINGLE CARD
+========================= */
+ 
+.professionalsCardContainer {
+    position: relative;
+ 
+    /* exactly 3 cards per row: (width - 2 gaps) / 3 */
+    flex: 0 0 calc((100% - 2 * var(--cards-gap)) / 3);
+    min-width: 0;
+ 
+    display: flex;
+    align-items: center;
+    gap: 14px;
+ 
+    padding: 16px;
+    border-radius: 16px;
+ 
+    color: #fff;
+    background-color: #0f0f0f;
+    box-shadow:
+        0 10px 30px rgba(80, 80, 80, 0.3),
+        0 0 1px rgba(255, 255, 255, 0.08);
+ 
+    /* inactive look */
+    opacity: 0.4;
+    transform: scale(0.96);
+    cursor: pointer;
+ 
+    /* JS animates reordering with `translate`, so `transform` is free for scale */
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+ 
+.professionalsCardContainer:not(.active):hover {
+    opacity: 0.65;
+}
+ 
+/* selected look */
+.professionalsCardContainer.active {
+    opacity: 1;
+    transform: scale(1);
+}
+ 
+/* thin gradient border */
+.professionalsCardContainer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    pointer-events: none;
+ 
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+ 
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+ 
+/* profile picture */
+.professionalsImageContainer {
+    flex-shrink: 0;
+}
+ 
+.professionalsImageContainer img {
+    display: block;
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+ 
+/* name, @tag and role */
+.professionalsInfoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 6px;
+ 
+    min-width: 0;
+    text-align: left;
+}
+ 
+.professionalsTopText {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 8px;
+}
+ 
+.professionalsName,
+.professionalsTag,
+.professionalsDesc {
+    margin: 0;
+}
+ 
+.professionalsName {
+    color: #fff;
+    font-weight: 600;
+}
+ 
+.professionalsTag {
+    color: #585858;
+}
+ 
+.professionalsDesc {
+    color: #888;
+    font-size: 14px;
+}
+ 
+/* =========================
+   BOTTOM: FAVORITES + QUOTE
+========================= */
+ 
+.professionals-bottom-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 40px;
+ 
+    /* same width as the cards row so the edges line up */
+    width: min(1100px, 90vw);
+    /* keeps the section from jumping when the selected person changes */
+    min-height: 320px;
+    margin: 0 auto;
+ 
+    text-align: left;
+}
+ 
+/* ---- left column: favorites ---- */
+ 
+.professionals-favorite {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    min-width: 0;
+}
+ 
+/* hidden unless selected */
+.proFavoriteTop,
+.proFavoriteBottom {
+    display: none;
+}
+ 
+.proFavoriteTop.active,
+.proFavoriteBottom.active {
+    display: grid;
+    grid-template-columns: minmax(110px, 0.7fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 24px;
+ 
+    color: #888;
+}
+ 
+/* "Top Extension:" / "Favorite Feature:" label */
+.proFavoriteTop h4,
+.proFavoriteBottom h4 {
+    margin: 0;
+    padding-top: 6px; /* lines the label up with the pill */
+    font-size: 14px;
+    font-weight: 500;
+}
+ 
+.proFavoriteTopInfo,
+.proFavoriteBottomInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    min-width: 0;
+}
+ 
+/* the little grey pill: icon + title */
+.proFavoriteTopTitle,
+.proFavoriteBottomTitle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+ 
+    padding: 5px;
+    border-radius: 10px;
+    background: #313131;
+}
+ 
+.proFavoriteTopTitle img,
+.proFavoriteBottomTitle img {
+    display: block;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+ 
+.proFavoriteTopTitle p,
+.proFavoriteBottomTitle p {
+    margin: 0;
+    padding-right: 6px;
+    color: #fff;
+    font-size: 13px;
+}
+ 
+/* some people have no title, show just the icon */
+.proFavoriteTopTitle p:empty,
+.proFavoriteBottomTitle p:empty {
+    display: none;
+}
+ 
+.proTopDesc,
+.proBottomDesc {
+    margin: 0;
+    color: #777676;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+ 
+/* ---- right column: quote ---- */
+ 
+.professionals-quotes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    padding: 20px;
+    border-left: 1px solid #555;
+}
+ 
+.proQuote {
+    display: none;
+}
+ 
+.proQuote.active {
+    display: block;
+}
+ 
+.professionals-quotes h2 {
+    width: 80%;
+    margin: 0;
+    color: #d6d6d6;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+ 
+/* =========================
+   RESPONSIVE
+========================= */
+ 
+@media (max-width: 900px) {
+    .professionals-cards {
+        --cards-gap: 12px;
+    }
+ 
+    .professionalsCardContainer {
+        gap: 8px;
+        padding: 12px 10px;
+    }
+ 
+    .professionalsTag {
+        display: none;
+    }
+ 
+    .professionalsImageContainer img {
+        width: 32px;
+        height: 32px;
+    }
+ 
+    .professionalsInfoContainer {
+        gap: 4px;
+    }
+ 
+    .professionalsName {
+        font-size: 12px;
+    }
+ 
+    .professionalsDesc {
+        font-size: 11px;
+    }
+ 
+    .professionals-bottom-container {
+        gap: 24px;
+    }
+}
+ 
+@media (max-width: 600px) {
+    /* cards: picture on top, text below */
+    .professionals-cards {
+        --cards-gap: 10px;
+        width: 92vw;
+    }
+ 
+    .professionalsCardContainer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 10px 8px;
+    }
+ 
+    .professionalsInfoContainer {
+        width: 100%;
+    }
+ 
+    .professionalsName {
+        white-space: normal; /* let long names wrap instead of overflowing */
+    }
+ 
+    /* bottom: one column, quote under the favorites */
+    .professionals-bottom-container {
+        grid-template-columns: minmax(0, 1fr);
+        width: 92vw;
+        min-height: 0;
+    }
+ 
+    .professionals-favorite {
+        gap: 36px;
+    }
+ 
+    .proFavoriteTop.active,
+    .proFavoriteBottom.active {
+        grid-template-columns: minmax(90px, 0.65fr) minmax(0, 1fr);
+        gap: 16px;
+    }
+ 
+    .professionals-quotes {
+        justify-content: flex-start;
+        padding: 24px 0 0;
+        border-top: 1px solid #555;
+        border-left: none;
+    }
+ 
+    .professionals-quotes h2 {
+        width: 100%;
+        font-size: 18px;
+    }
+}

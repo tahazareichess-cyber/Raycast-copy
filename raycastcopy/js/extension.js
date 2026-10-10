@@ -352,7 +352,7 @@ function showCards(cards) {
         description.classList.add("extension-desc");
 
         article.style.backgroundImage = `url("${card.background}")`;
-        image.src = card.image;
+        image.src =card.image;
         logoName.textContent = card.title;
         arrow.innerHTML = card.icon;
         description.textContent = card.desc;
