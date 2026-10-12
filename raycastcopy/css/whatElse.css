@@ -1,0 +1,144 @@
+/* WHAT ELSE SECTION */
+
+.whatElse {
+    background: #080808;
+    color: #f5f5f5;
+    padding: 100px 24px 80px;
+}
+
+.whatElse-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 70px;
+}
+
+/* LEFT SIDE */
+
+.whatElse-texts {
+    min-width: 0;
+}
+
+.whatElse-texts h2 {
+    font-size: 23px;
+    font-weight: 650;
+    line-height: 1.4;
+    margin: 0 0 2px;
+}
+
+/* CLICKABLE FEATURE TEXTS */
+
+.whatElse-options {
+    max-width: 385px;
+    margin: 0 0 70px;
+
+    color: #4b4b4b;
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.whatElse-option {
+    color: #4b4b4b;
+    cursor: pointer;
+    transition: color 0.25s ease;
+    outline: none;
+}
+
+.whatElse-option:hover {
+    color: #bdbdbd;
+}
+
+.whatElse-option.active {
+    color: #f5f5f5;
+    font-weight: 700;
+}
+
+.whatElse-option:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* FEATURE BADGE */
+
+.whatElse-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 4px 7px;
+    border-radius: 5px;
+    background: #202020;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.whatElse-icon {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+}
+
+.whatElse-desc {
+    max-width: 330px;
+    margin: 12px 0 0;
+
+    color: #a0a0a0;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* RIGHT SIDE IMAGE */
+
+.whatElse-imgs {
+    width: 100%;
+    overflow: hidden;
+
+    border: 1px solid #242424;
+    border-radius: 15px;
+    background: #0b0b0b;
+}
+
+.whatElse-main-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.23;
+    object-fit: cover;
+
+    transition: opacity 0.25s ease;
+}
+
+.whatElse-main-img[hidden],
+.whatElse-icon[hidden],
+.whatElse-badge[hidden],
+.whatElse-desc[hidden] {
+    display: none;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 750px) {
+    .whatElse {
+        padding: 60px 22px;
+    }
+
+    .whatElse-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .whatElse-options {
+        max-width: 100%;
+        font-size: 21px;
+        margin-bottom: 40px;
+    }
+
+    .whatElse-imgs {
+        max-width: 550px;
+    }
+}

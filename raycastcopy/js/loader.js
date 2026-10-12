@@ -7,6 +7,7 @@ const components = [
     ["aiAgent", "raycastcopy/html/aiAgent.html"],
     ["professionals", "raycastcopy/html/professionals.html"],
     ["automate", "raycastcopy/html/automate.html"],
+    ["whatElse", "raycastcopy/html/whatElse.html"],
 ];
 
 async function loadComponent(id, file) {
@@ -43,6 +44,7 @@ async function loadPage() {
     initExtention();
     initPro();
     initAutomate();
+    initWhatElse();
 }
 
 loadPage();
